@@ -1,7 +1,4 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-
-name: Node.js Package
+name: Publish to Github Pages
 
 on:
   push:
@@ -9,29 +6,22 @@ on:
       - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-deploy:
+    runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm ci
-      - run: npm test
+      - uses: actions/checkout@master
 
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://npm.pkg.github.com/
+      # 安装依赖
       - run: npm ci
-      - run: npm publish
+
+      # 打包
+      - run: npm run build
+
+      # 部署
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2.5.0
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          # 生成文件的目录
+          PUBLISH_DIR: ./build
