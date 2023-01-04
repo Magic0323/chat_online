@@ -3,6 +3,8 @@
   "homepage": "https://Magic0323.github.io/chat_online",
   "version": "0.1.0",
   "dependencies": {
+    "@cloudbase/js-sdk": "^2.5.6-beta.1",
+    "@cloudbase/node-sdk": "^2.9.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -38,5 +40,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:9999"
+
 }

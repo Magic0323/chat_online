@@ -1,7 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { get } from "./utils/http";
 
 function App() {
+  get("/getName", { name: "zs" }).then((res) => {
+    console.log(res);
+  });
   return (
     <div className="App">
       <header className="App-header">
