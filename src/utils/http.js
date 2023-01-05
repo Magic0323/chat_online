@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 axios.defaults.baseURL =
-  'http://localhost:9999';
+'https://magic-7gmqd9iafbefa003-1316423047.ap-shanghai.app.tcloudbase.com/chat_online_serverless'
+  // 'http://localhost:8888';
+  // 'http://localhost:9999';
 
 axios.defaults.responseType = 'json';
 axios.defaults.timeout = 100000;
