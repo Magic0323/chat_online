@@ -2,6 +2,9 @@
 
 https://magic-7gmqd9iafbefa003-1316423047.tcloudbaseapp.com/
 
+* 账号：zs
+* 密码：123456
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
