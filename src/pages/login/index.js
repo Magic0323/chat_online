@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message, Space } from "antd";
 import { post } from "../../utils/http.js";
 import "./style.min.css";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [messageApi, contextHolder] = message.useMessage()
 
   const onFinish = (values) => {
     console.log("Success:", values);
-    postLogin(values)
+    postLogin(values);
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -18,11 +19,14 @@ const Login = () => {
   const postLogin = (userInfo) => {
     post("/login", userInfo).then((res) => {
       console.log(res);
-      if(res.code === 0){
-        navigate('/home',{state:userInfo})
+      if (res.code === 0) {
+        navigate("/home", { state: userInfo });
+      } else {
+        message.error(res.msg)
       }
     });
   };
+
 
   return (
     <div className="login-form">
