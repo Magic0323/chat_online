@@ -1,0 +1,27 @@
+.friendCard {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
+}
+
+.friendCard .card_left {
+  width: 80%;
+}
+
+.friendCard .card_left .avatar {
+  margin-right: 10px;
+}
+
+.friendCard .card_left .msg {
+  margin-top: 10px;
+}
+
+.friendCard .circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #000;
+}
